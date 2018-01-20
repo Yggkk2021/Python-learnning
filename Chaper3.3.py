@@ -41,3 +41,29 @@ print(p)
 # 加号（+）不论是整数还是负数都显示符号
 p = '%+5d' % +10 + '\n' + '%+5d' % -10
 print(p)
+
+# -----------------------
+
+# 字符串格式化演示
+
+width = int(input("Please enter width:"))
+
+price_format = 10
+item_width = width-price_format
+
+header_format = '%-*s%*s'
+format1 = '%-*s%*.2f'
+
+print('=' * width)
+
+print(header_format % (item_width,'Item',price_format,'Price'))
+
+print('-' * width)
+
+print(format1 % (item_width,'Apples',price_format,0.7))
+print(format1 % (item_width,'Beer',price_format,1.7))
+print(format1 % (item_width,'Juice',price_format,7.7))
+print(format1 % (item_width,'Orange',price_format,0.3))
+print(format1 % (item_width,'Watermelon',price_format,0.6))
+
+print('=' * width)
