@@ -75,7 +75,7 @@ print(a)
 
 # 2.3.3.8 reverse 方法见将列表中的元素方向存着
 x = [1,2,3]
-x.reverse();
+x.reverse()
 print(x)
 
 # 2.3.3.9 sort 排序
