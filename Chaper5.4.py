@@ -110,3 +110,6 @@ for i in range(100):
         print(i)
     else:
         continue
+
+# 列表推导式
+print([x*x for x in range(10)])
