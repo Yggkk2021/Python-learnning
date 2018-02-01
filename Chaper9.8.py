@@ -4,18 +4,19 @@ def conflict(state, nextX):
     # nextX表示水平位置（X坐标）nextY表示垂直位置（Y坐标）
     nextY = len(state)
     for i in range(nextY):
-        # 如果下一个皇后和正在考虑的前一个皇后的水平距离为0或等于垂直距离，就返回True
+        # 如果下一个皇后和正在考虑的前一个皇后的水平距离为0或等于垂直距离，就返回False
         if abs(state[i] - nextX) in (0, nextY - 1):
-            return True
-    return False
+            return False
+    return True
 
 
 # 最后一个皇后时
 def queens(num=8, state=()):
     for pos in range(num):
-        if not conflict(state, pos):
+        if conflict(state, pos):
             if len(state) == num - 1:
-            # yield类似返回return，但是下一次直接从yield下一行代码开始执行
+                # yield类似返回return，但是下一次直接从yield下一行代码开始执行
+                # yield返回执行结果并不中断程序执行，return在返回执行结果的同时中断程序执行。
                 yield (pos,)
             else:
                 for result in queens(num, state + (pos,)):
@@ -32,6 +33,6 @@ def prettyprint(solution):
         print(line(pos))
 
 
-print(len(list(queens(8))))
-
-prettyprint(list(queens(8))[1])
+# print(len(list(queens(8))))
+import random
+prettyprint(random.choice(list(queens(8))))
